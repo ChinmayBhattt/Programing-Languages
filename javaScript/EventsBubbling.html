@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+
+    <style>
+        .child{
+            background-color: aliceblue;
+            border: 2px solid black;
+            padding: 23px;
+            margin: 23px;
+            cursor: pointer;
+        }
+
+        .childContainer{
+            background-color: beige;
+            padding: 23px;
+            margin: 23px;
+            cursor: pointer;
+        }
+
+        .container{
+            margin: 23px;
+            padding: 23px;
+            background-color: rgb(238, 238, 10);
+            cursor: pointer;
+        }
+        #wt-box{
+            margin: 34px;
+            padding: 34px;
+            cursor: pointer;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section class="childContainer">
+            <div id="ch" class="child">
+                Hey I am child
+            </div>
+        </section>
+    </div>
+
+    <div class="container2">
+        <div id="wt-box" class="word"> Hello Whats up</div>
+    </div>
+
+    <script>
+        // let sp = document.getElementById("ch");
+        // sp.addEventListener("click",()=>{
+        //     alert("Child Was click")
+        // })
+
+    
+        document.querySelector(".child").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("child was clicked");
+        })
+
+        document.querySelector(".childContainer").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("childContainer was clicked");
+        })
+
+        document.querySelector(".container").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("container was clicked");
+        })
+
+        // document.querySelector("#wt-box").addEventListener("click", (e)=>{
+        //     e.stopPropagation();
+        //     alert("hello")
+        // })
+    </script>
+    
+</body>
+</html>
+

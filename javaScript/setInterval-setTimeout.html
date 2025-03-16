@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            background-color: antiquewhite;
+            margin: 34px;
+            padding: 34px;
+            cursor: pointer;
+        }
+        .box{
+            background-color: aqua;
+            margin: 34px;
+            padding: 34px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">This is a Box</div>
+    </div>
+
+    <script>
+        document.querySelector(".container").addEventListener("click", (e)=>{
+            e.stopPropagation();
+            alert("container was clicked");
+        })
+        document.querySelector(".box").addEventListener("click", ()=>{
+            e.stopPropagation();
+            alert("box was clicked")
+        })
+
+        function getRandomColor(){
+            let var1 = Math.ceil(0 + Math.random() * 255)
+            let var2 = Math.ceil(0 + Math.random() * 255)
+            let var3 = Math.ceil(0 + Math.random() * 255)
+            let var4 = Math.ceil(0 + Math.random() * 255)
+            return `rgb(${var1}, ${var2}, ${var3},${var4})`
+        }
+        setInterval(() =>{
+            document.querySelector(".container").style.background = getRandomColor( );
+        }, 100);
+
+    // try in chrome browser: (clearInterval(1))
+
+    setTimeout(() =>{
+        document.querySelector(".container").style.background = getRandomColor();
+    },1000);
+
+    </script>
+    
+</body>
+</html>
